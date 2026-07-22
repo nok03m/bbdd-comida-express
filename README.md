@@ -46,3 +46,84 @@ A partir de este caso de estudio se espera construir un **Modelo Entidad-Relaci�
 - Relaciones entre entidades.
 - Cardinalidades.
 - Entidades asociativas (si son necesarias).
+
+# Modelo Entidad-Relación (MER)
+
+```mermaid
+erDiagram
+
+    CLIENTE {
+        int id_cliente PK
+        string nombre
+    }
+
+    EMPLEADO {
+        int identificacion PK
+        string nombre
+        string cargo
+    }
+
+    PEDIDO {
+        int codigoPedido PK
+        date fechaRealizada
+    }
+
+    PRODUCTO {
+        int codigo PK
+        string nombre
+        decimal precio
+        string categoria
+    }
+
+    PAGO {
+        string metodoPago
+    }
+
+    CLIENTE }o--|| EMPLEADO : "atiende"
+    EMPLEADO ||--o{ PEDIDO : "realiza"
+    PEDIDO }o--o{ PRODUCTO : "contiene"
+    PEDIDO }o--o{ PAGO : "realiza"
+```
+
+## Entidades
+
+### Cliente
+| Atributo | Tipo | Clave |
+|----------|------|--------|
+| id_cliente | int | PK |
+| nombre | string | |
+
+### Empleado
+| Atributo | Tipo | Clave |
+|----------|------|--------|
+| identificacion | int | PK |
+| nombre | string | |
+| cargo | string | |
+
+### Pedido
+| Atributo | Tipo | Clave |
+|----------|------|--------|
+| codigoPedido | int | PK |
+| fechaRealizada | date | |
+
+### Producto
+| Atributo | Tipo | Clave |
+|----------|------|--------|
+| codigo | int | PK |
+| nombre | string | |
+| precio | decimal | |
+| categoria | string | |
+
+### Pago
+| Atributo | Tipo |
+|----------|------|
+| metodoPago | string |
+
+## Relaciones
+
+| Relación | Cardinalidad |
+|-----------|--------------|
+| Cliente — atiende — Empleado | N:1 |
+| Empleado — realiza — Pedido | 1:N |
+| Pedido — contiene — Producto | N:M |
+| Pedido — realiza — Pago | N:M |
