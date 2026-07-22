@@ -85,40 +85,6 @@ erDiagram
     PEDIDO }o--o{ PAGO : "realiza"
 ```
 
-## Entidades
-
-### Cliente
-| Atributo | Tipo | Clave |
-|----------|------|--------|
-| id_cliente | int | PK |
-| nombre | string | |
-
-### Empleado
-| Atributo | Tipo | Clave |
-|----------|------|--------|
-| identificacion | int | PK |
-| nombre | string | |
-| cargo | string | |
-
-### Pedido
-| Atributo | Tipo | Clave |
-|----------|------|--------|
-| codigoPedido | int | PK |
-| fechaRealizada | date | |
-
-### Producto
-| Atributo | Tipo | Clave |
-|----------|------|--------|
-| codigo | int | PK |
-| nombre | string | |
-| precio | decimal | |
-| categoria | string | |
-
-### Pago
-| Atributo | Tipo |
-|----------|------|
-| metodoPago | string |
-
 ## Relaciones
 
 | Relación | Cardinalidad |
